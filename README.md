@@ -16,3 +16,6 @@ http://www.youtube.com/user/c9ide.
 
 Happy coding!
 The Cloud9 IDE team
+
+## ここのソースを一部修正
+http://engineer.recruit-lifestyle.co.jp/techblog/2015-07-29-node4/
