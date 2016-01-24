@@ -34,11 +34,18 @@
         var ioSocket = io.connect();
 
     // サーバーからのデータ受け取り処理
-    ioSocket.on( "connect", function() {} ); // 接続
-    ioSocket.on( "disconnect", function() {} ); // 切断
+    ioSocket.on( "connect", function() {
+        console.log("connected");
+    } ); // 接続
+    ioSocket.on( "disconnect", function() {
+        console.log("disconnected");
+    } ); // 切断
 
     // サーバーからクライアントへの送り返し
-    ioSocket.on( "s2c_message", function( data ) { appendMessage( data.value ) });
+    ioSocket.on( "s2c_message", function( data ) { 
+        appendMessage( data.value );
+        console.log("s2c_message");
+    });
 
     // 画面にメッセージを追記
     function appendMessage( text ) {
@@ -54,6 +61,7 @@
 
         // クライアントからサーバーへ送信
         ioSocket.emit( "c2s_message", { value : message } );
+        console.log("c2s_message");
     });
 
     // 自分以外の全員宛にメッセージを送信
@@ -65,6 +73,7 @@
 
         // クライアントからサーバーへ送信
         ioSocket.emit( "c2s_broadcast", { value : message } );
+        console.log("c2s_broadcast");
     });
     </script>
 </body>
